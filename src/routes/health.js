@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
     await getDb().command({ ping: 1 });
     res.json({
       status: 'ok',
-      service: process.env.SERVICE_NAME || 'promociones-service',
+      service: (process.env.SERVICE_NAME || '').trim() || 'promociones-service',
       collection: COLLECTION,
       version,
     });

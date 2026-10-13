@@ -18,7 +18,7 @@ const isErr = (code) => (b) => (b.error === code && typeof b.message === 'string
 
 (async () => {
   console.log(`Probando ${BASE}\n`);
-  await check('health', '/health', 200, (b) => (b.status === 'ok' && b.collection === 'promociones') || 'campos');
+  await check('health', '/health', 200, (b) => (b.status === 'ok' && b.collection === 'promociones' && b.service === b.service.trim()) || 'campos');
   await check('lista default (20, orden id, sin _id)', '/items', 200, (b) =>
     (b.total === 12 && b.limit === 20 && b.offset === 0 && b.items.length === 12 && b.items[0].id === 'PRM001' && !('_id' in b.items[0]) && b.items[11].id === 'PRM012') || ids(b));
   await check('paginación limit=5 offset=10', '/items?limit=5&offset=10', 200, (b) => (b.total === 12 && ids(b) === 'PRM011,PRM012') || ids(b));
