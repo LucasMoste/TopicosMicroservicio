@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: ms-promociones
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: MONGODB_URI
+        sync: false # se carga a mano en el dashboard de Render (secreto)
+      - key: DB_NAME
+        value: Promociones
+      - key: COLLECTION_NAME
+        value: Promociones
+      - key: SERVICE_NAME
+        value: promociones-service

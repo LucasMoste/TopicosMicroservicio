@@ -1,0 +1,24 @@
+{
+  "name": "ms-promociones",
+  "version": "1.0.0",
+  "description": "Microservicio de promociones (solo lectura) - Node.js + Express + MongoDB",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "seed": "node scripts/seed.js",
+    "test:contract": "node scripts/test-contract.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "js-yaml": "^4.1.0",
+    "mongodb": "^6.12.0",
+    "swagger-ui-express": "^5.0.1"
+  }
+}
