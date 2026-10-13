@@ -23,7 +23,7 @@ app.use('/docs', swaggerUi.serve, swaggerUi.setup(spec));
 
 app.get('/', (req, res) => {
   res.json({
-    service: (process.env.SERVICE_NAME || '').trim() || 'promociones-service',
+    service: process.env.SERVICE_NAME || 'promociones-service',
     collection: 'promociones',
     endpoints: ['GET /health', 'GET /items', 'GET /items/{id}'],
     docs: '/docs',
